@@ -1,0 +1,39 @@
+.center-align {
+  display: flex;
+  justify-content: center;
+}
+
+mat-card {
+  margin: 1rem;
+  width: 450px;
+
+  mat-card-title {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  mat-card-footer {
+    margin: 0
+  }
+}
+
+.light-font {
+  font-weight: 100;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.smaller {
+  font-size: 0.8rem;
+}
+
+.lighter {
+  font-weight: 100;
+  color: rgba(0,0,0,0.45);
+}

@@ -1,0 +1,64 @@
+<div class="row">
+  <button mat-button (click)="toggleLegendaryPokemon()">
+    Show Legendary Pokemon
+  </button>
+  <mat-form-field >
+    <mat-label>Search</mat-label>
+    <input matInput placeholder="Search Pokemon" [formControl]="searchControl">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>
+<div class=center-align *ngIf="actualList?.length === 0">No Pokemon Available</div>
+<div *ngFor="let pokemon of actualList; trackBy pokemonTrackBy" class="center-align">
+  <mat-card class="example-card">
+    <mat-card-subtitle>Pokemon</mat-card-subtitle>
+    <mat-card-title>
+      <div>
+        <span>{{pokemon.name}}</span>
+        <span class="smaller lighter">generation {{pokemon.generationNo}}</span>
+      </div>
+      <div class="light-font row">
+        <div>
+          {{pokemon.totalStats}}
+        </div>
+        <div class="smaller">
+          stats
+        </div>
+      </div>
+    </mat-card-title>
+    <mat-card-content>
+      {{pokemon.name}} is a {{pokemon.type[0]}} type pokemon and has {{pokemon.totalStats}} total stats.
+      and {{pokemon.hp}} HP.
+    </mat-card-content>
+    <mat-divider inset></mat-divider>
+    <mat-card-actions>
+      <button mat-stroked-button>
+        <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/attack-1672836-1419185.png" alt="attack" width="20" height="20">
+        {{pokemon.attack}}
+      </button>
+      <button mat-stroked-button>
+        <img src="https://cdn2.iconfinder.com/data/icons/gaming-entertainment-vol-3/64/hearts-512.png" alt="attack" width="20" height="20">
+        {{pokemon.attack}}
+      </button>
+      <button mat-stroked-button>
+        <img src="https://www.vhv.rs/dpng/d/74-747143_speed-icon-png-transparent-png.png" alt="attack" width="24" height="18">
+        {{pokemon.attack}}
+      </button>
+    </mat-card-actions>
+    <mat-card-footer>
+      <div class="row">
+        <mat-chip-list>
+          <ng-container *ngFor="let type of pokemon.type">
+            <mat-chip *ngIf="type">
+              {{type}}
+            </mat-chip>
+          </ng-container>
+        </mat-chip-list>
+        <button mat-button *ngIf="pokemon.isLegendary">
+          <img src="https://cdn.pixabay.com/photo/2016/09/30/08/21/pokemon-1704687_1280.png" alt="attack" width="20" height="20">
+          Legendary
+        </button>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+</div>
